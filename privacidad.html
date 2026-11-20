@@ -3,43 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política de Privacidad — Ramón</title>
+  <title>Política de Privacidad — Ramón · RM Dev</title>
+  <meta name="description" content="Política de privacidad de Ramón (RM Dev) y sus aplicaciones para Android: Cubi Juegos, Results Soccer y Sobre Texto." />
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #fafafa;
-      color: #18181b;
-      line-height: 1.7;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-bg: #f1f5f9;
     }
-    h1 { font-size: 1.9rem; margin-bottom: 0.5rem; }
-    h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; }
-    p { color: #3f3f46; margin-bottom: 1rem; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 2rem; font-size: 0.9rem; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f19;
+        --surface: #111827;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --border: #1e293b;
+        --accent: #3b82f6;
+        --accent-hover: #60a5fa;
+        --tag-bg: #1e293b;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 3rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .back-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .meta {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+    }
+
+    .doc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    section + section {
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 0.975rem;
+      margin-bottom: 0.85rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .apps-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .app-pill {
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--text);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--muted);
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .doc-card {
+        padding: 1.35rem;
+      }
+      h1 {
+        font-size: 1.85rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <a class="back" href="index.html">← Volver al portafolio</a>
+  <a class="back-link" href="index.html">← Volver al portafolio</a>
 
-  <h1>Política de Privacidad</h1>
-  <p><strong>Última actualización:</strong> Noviembre de 2026</p>
+  <header>
+    <div class="eyebrow">Información Legal</div>
+    <h1>Política de Privacidad</h1>
+    <p class="meta">Última actualización: 20 de noviembre de 2026</p>
+  </header>
 
-  <h2>1. Responsable del tratamiento</h2>
-  <p>Titular: Ramón<br>Correo de contacto: <a href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a></p>
+  <main class="doc-card">
+    <section>
+      <h2>1. Responsable del tratamiento</h2>
+      <p>
+        Esta política de privacidad aplica a este sitio web y a las aplicaciones móviles desarrolladas por <strong>Ramón (RM Dev)</strong>:
+      </p>
+      <div class="apps-list">
+        <span class="app-pill">Cubi Juegos</span>
+        <span class="app-pill">Results Soccer</span>
+        <span class="app-pill">Sobre Texto</span>
+      </div>
+      <p style="margin-top: 1rem;">
+        Correo de contacto: <a href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a>
+      </p>
+    </section>
 
-  <h2>2. Datos recopilados</h2>
-  <p>Este sitio web y las aplicaciones asociadas no recopilan ni almacenan datos personales de los usuarios sin su consentimiento explícito.</p>
+    <section>
+      <h2>2. Datos personales recopilados</h2>
+      <p>
+        Como regla general, este portafolio y las aplicaciones asociadas están pensados para funcionar sin exigir registro ni recopilar datos personales identificativos de forma oculta.
+      </p>
+      <p>
+        Si en el futuro alguna aplicación o funcionalidad incorpora servicios de terceros (como analítica, publicidad o consulta de datos externos), se actualizará este documento detallando su alcance antes de su activación.
+      </p>
+    </section>
 
-  <h2>3. Contacto</h2>
-  <p>Si te pones en contacto a través del correo electrónico indicado, tus datos se utilizarán únicamente para responder a tu consulta y no se cederán a terceros.</p>
+    <section>
+      <h2>3. Finalidad del contacto</h2>
+      <p>
+        Si escribes a <a href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a>, tu dirección de correo y el contenido del mensaje se emplearán exclusivamente para atender tu consulta, soporte técnico o propuesta, sin cederse a terceros salvo obligación legal.
+      </p>
+    </section>
 
-  <h2>4. Derechos</h2>
-  <p>Puedes solicitar el acceso, rectificación o eliminación de tus datos escribiendo a <a href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a>.</p>
+    <section>
+      <h2>4. Derechos de privacidad</h2>
+      <p>
+        Puedes ejercer tus derechos de acceso, rectificación, supresión, limitación u oposición enviando una solicitud a <a href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Ramón · RM Dev</span>
+    <a href="index.html">Inicio</a>
+  </footer>
 
 </body>
 </html>
