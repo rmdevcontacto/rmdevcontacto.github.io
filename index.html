@@ -3,132 +3,314 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ramón — Desarrollador de Software</title>
+  <title>Ramón — Desarrollo de Aplicaciones</title>
+  <meta name="description" content="Portafolio de desarrollo de aplicaciones Android y software de Ramón." />
   <style>
     :root {
-      --bg: #fafafa;
+      --bg: #f8fafc;
       --surface: #ffffff;
-      --text: #18181b;
-      --muted: #52525b;
-      --border: #e4e4e7;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
       --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-bg: #f1f5f9;
+      --status-live-bg: #dcfce7;
+      --status-live-text: #166534;
+      --status-dev-bg: #fef3c7;
+      --status-dev-text: #92400e;
     }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f19;
+        --surface: #111827;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --border: #1e293b;
+        --accent: #3b82f6;
+        --accent-hover: #60a5fa;
+        --tag-bg: #1e293b;
+        --status-live-bg: rgba(22, 101, 52, 0.35);
+        --status-live-text: #86efac;
+        --status-dev-bg: rgba(146, 64, 14, 0.35);
+        --status-dev-text: #fcd34d;
+      }
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      max-width: 820px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 4rem 1.5rem 3rem;
     }
-    header { margin-bottom: 3.5rem; }
-    h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
-    .bio { color: var(--muted); font-size: 1.1rem; margin-top: 0.5rem; max-width: 600px; }
-    .links { margin-top: 1.25rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
+
+    header {
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
-    .links a:hover { text-decoration: underline; }
-    h2 {
-      font-size: 1.15rem;
+
+    .eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .bio {
+      color: var(--muted);
+      font-size: 1.125rem;
+      margin-top: 0.85rem;
+      max-width: 640px;
+    }
+
+    .links {
+      margin-top: 1.75rem;
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 1.5rem;
     }
+
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
+      border-radius: 12px;
+      padding: 1.65rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
+
     .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
     }
-    .card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
-    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .status {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .status-live {
+      background: var(--status-live-bg);
+      color: var(--status-live-text);
+    }
+
+    .status-dev {
+      background: var(--status-dev-bg);
+      color: var(--status-dev-text);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
     .tag {
       font-size: 0.75rem;
-      background: #f4f4f5;
-      color: var(--muted);
-      padding: 0.2rem 0.55rem;
-      border-radius: 5px;
-    }
-    .card a {
-      color: var(--accent);
-      text-decoration: none;
       font-weight: 500;
-      font-size: 0.9rem;
-    }
-    .card a:hover { text-decoration: underline; }
-    footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      background: var(--tag-bg);
       color: var(--muted);
-      font-size: 0.85rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 6px;
     }
-    footer a { color: var(--muted); text-decoration: underline; }
+
+    .card-action {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .card-action:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    .card-action-muted {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
   <header>
+    <div class="eyebrow">Portafolio de Desarrollo</div>
     <h1>Ramón</h1>
-    <p class="bio">Desarrollador de software. Aquí comparto mis aplicaciones, herramientas y proyectos personales.</p>
+    <p class="bio">
+      Desarrollo aplicaciones móviles para Android y herramientas digitales enfocadas en la sencillez, el rendimiento y una experiencia de usuario cuidada.
+    </p>
     <div class="links">
-      <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>
-      <a href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a>
+      <a class="btn-link" href="https://github.com/rmdevcontacto" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn-link" href="mailto:contacto.rmdev@gmail.com">contacto.rmdev@gmail.com</a>
     </div>
   </header>
 
   <main>
-    <h2>Proyectos destacados</h2>
+    <div class="section-header">
+      <h2>Aplicaciones y Proyectos</h2>
+    </div>
+
     <div class="grid">
 
-      <!-- PROYECTO 1 -->
+      <!-- PROYECTO 1: CUBI JUEGOS -->
       <article class="card">
         <div>
-          <h3>Proyecto 1</h3>
-          <p>Breve descripción de qué hace esta aplicación o herramienta y qué problema resuelve.</p>
+          <div class="card-top">
+            <h3>Cubi Juegos</h3>
+            <span class="status status-live">Disponible</span>
+          </div>
+          <p>Colección de minijuegos y retos rápidos diseñada para Android con una interfaz ágil e intuitiva.</p>
         </div>
         <div>
           <div class="tags">
-            <span class="tag">Kotlin</span>
             <span class="tag">Android</span>
+            <span class="tag">Entretenimiento</span>
           </div>
-          <a href="#" target="_blank">Ver proyecto →</a>
+          <!-- Sustituye el # de abajo por el enlace de Google Play o descarga de Cubi Juegos -->
+          <a class="card-action" href="#" target="_blank" rel="noopener">Ver aplicación →</a>
         </div>
       </article>
 
-      <!-- PROYECTO 2 -->
+      <!-- PROYECTO 2: RESULTS SOCCER -->
       <article class="card">
         <div>
-          <h3>Proyecto 2</h3>
-          <p>Breve descripción de tu segundo proyecto destacado.</p>
+          <div class="card-top">
+            <h3>Results Soccer</h3>
+            <span class="status status-dev">En proyecto</span>
+          </div>
+          <p>Aplicación para consultar resultados, clasificaciones y estadísticas de fútbol de forma clara y directa.</p>
         </div>
         <div>
           <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Web</span>
+            <span class="tag">Android</span>
+            <span class="tag">Deportes</span>
           </div>
-          <a href="#" target="_blank">Ver proyecto →</a>
+          <span class="card-action-muted">Próximamente</span>
+        </div>
+      </article>
+
+      <!-- PROYECTO 3: SOBRE TEXTO -->
+      <article class="card">
+        <div>
+          <div class="card-top">
+            <h3>Sobre Texto</h3>
+            <span class="status status-dev">En proyecto</span>
+          </div>
+          <p>Herramienta móvil orientada a la edición, gestión y utilidades rápidas sobre textos.</p>
+        </div>
+        <div>
+          <div class="tags">
+            <span class="tag">Android</span>
+            <span class="tag">Productividad</span>
+          </div>
+          <span class="card-action-muted">Próximamente</span>
         </div>
       </article>
 
@@ -136,7 +318,8 @@
   </main>
 
   <footer>
-    © 2026 Ramón · <a href="privacidad.html">Política de privacidad</a>
+    <span>© 2026 Ramón · RM Dev</span>
+    <a href="privacidad.html">Política de privacidad</a>
   </footer>
 
 </body>
